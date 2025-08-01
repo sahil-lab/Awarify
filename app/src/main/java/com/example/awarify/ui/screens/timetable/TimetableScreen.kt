@@ -240,7 +240,7 @@ private fun TimeSlotItem(
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
         colors = if (timeSlot.hobbyName != null) {
             CardDefaults.cardColors(
-                containerColor = GradientStart.copy(alpha = 0.05f)
+                containerColor = Color(0xFFF5F5F5) // Light grey background for tasks
             )
         } else {
             CardDefaults.cardColors(containerColor = Color.White)
@@ -256,8 +256,8 @@ private fun TimeSlotItem(
             Text(
                 text = timeSlot.time,
                 style = MaterialTheme.typography.bodyMedium,
-                fontWeight = FontWeight.Medium,
-                color = Color(0xFF1C1B1F),
+                fontWeight = FontWeight.SemiBold,
+                color = Color(0xFF000000), // Pure black for maximum visibility
                 modifier = Modifier.width(60.dp)
             )
             
@@ -283,15 +283,16 @@ private fun TimeSlotItem(
                     Text(
                         text = timeSlot.hobbyName,
                         style = MaterialTheme.typography.bodyLarge,
-                        fontWeight = FontWeight.Medium,
-                        color = Color(0xFF1C1B1F)
+                        fontWeight = FontWeight.SemiBold,
+                        color = Color(0xFF000000) // Pure black for maximum visibility
                     )
                     
                     if (timeSlot.duration != null) {
                         Text(
                             text = timeSlot.duration,
                             style = MaterialTheme.typography.bodySmall,
-                            color = Color(0xFF49454F)
+                            color = Color(0xFF424242), // Darker grey for better visibility
+                            fontWeight = FontWeight.Medium
                         )
                     }
                 }
@@ -303,7 +304,7 @@ private fun TimeSlotItem(
                     Icon(
                         Icons.Default.PlayArrow,
                         contentDescription = "Start Session",
-                        tint = MaterialTheme.colorScheme.primary
+                        tint = GradientStart
                     )
                 }
             } else {
@@ -311,7 +312,8 @@ private fun TimeSlotItem(
                 Text(
                     text = "Free time",
                     style = MaterialTheme.typography.bodyMedium,
-                    color = Color(0xFF49454F),
+                    color = Color(0xFF666666), // Darker grey for better visibility
+                    fontWeight = FontWeight.Medium,
                     modifier = Modifier.weight(1f)
                 )
                 
